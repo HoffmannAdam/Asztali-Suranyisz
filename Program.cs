@@ -58,7 +58,6 @@ namespace ConsoleApp1
 
         static void F6()
         {
-            int lk = 0;
             Console.Write("Adjon meg egy egész számot!:");
             int sz1 = int.Parse (Console.ReadLine());
             Console.Write("Adjon meg még egy egész számot!:");
