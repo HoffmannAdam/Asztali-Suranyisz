@@ -9,13 +9,37 @@ namespace ConsoleApp1
 {
     internal class Program
     {
+        static int ReadInt(string inputMessage)
+        {
+            int value;
+            Console.Write(inputMessage);
+            while (!int.TryParse(Console.ReadLine(), out value))
+            {
+                Console.WriteLine("Adj meg egy egész számot.");
+                Console.Write(inputMessage);
+            }
+            return value;
+        }
+
+        static double ReadDouble(string inputMessage)
+        {
+            double value;
+            Console.Write(inputMessage);
+            while (!double.TryParse(Console.ReadLine(), out value))
+            {
+                Console.WriteLine("Adj meg egy számot.");
+                Console.Write(inputMessage);
+            }
+            return value;
+        }
+
         static void F1()
         {
             Console.WriteLine("hello world!");
         }
 
         static void F2()
-        {   
+        {
             Console.Write("neve?:");
             string felh = Console.ReadLine();
             Console.WriteLine("hello " + felh);
@@ -24,21 +48,21 @@ namespace ConsoleApp1
         static void F3()
         {
             Console.Write("adjon meg egy számot!:");
-            float sz1 = float.Parse(Console.ReadLine());
-            Console.WriteLine(sz1*2);
+            double sz1 = double.Parse(Console.ReadLine());
+            Console.WriteLine(sz1 * 2);
         }
 
         static void F4()
         {
             Console.Write("adjon meg egy számot!:");
-            float sz1 = float.Parse(Console.ReadLine());
+            double sz1 = double.Parse(Console.ReadLine());
             Console.Write("adjon meg még egy számot!:");
-            float sz2 = float.Parse(Console.ReadLine());
+            double sz2 = double.Parse(Console.ReadLine());
 
-            Console.WriteLine($"összege: {sz1+sz2}");
-            Console.WriteLine($"különbsége: {sz1-sz2}");
-            Console.WriteLine($"szorzata:  {sz1*sz2}");
-            Console.WriteLine($"hányadosa: {sz1/sz2}");
+            Console.WriteLine($"összege: {sz1 + sz2}");
+            Console.WriteLine($"különbsége: {sz1 - sz2}");
+            Console.WriteLine($"szorzata:  {sz1 * sz2}");
+            Console.WriteLine($"hányadosa: {sz1 / sz2}");
         }
 
         static void F5()
@@ -51,7 +75,8 @@ namespace ConsoleApp1
             {
                 Console.WriteLine($"nagyobbik szám: {sz1}");
             }
-            else {
+            else
+            {
                 Console.WriteLine($"nagyobbik szám: {sz2}");
             }
         }
@@ -59,7 +84,7 @@ namespace ConsoleApp1
         static void F6()
         {
             Console.Write("Adjon meg egy egész számot!:");
-            int sz1 = int.Parse (Console.ReadLine());
+            int sz1 = int.Parse(Console.ReadLine());
             Console.Write("Adjon meg még egy egész számot!:");
             int sz2 = int.Parse(Console.ReadLine());
             Console.Write("Adjon meg még egy egész számot!:");
@@ -82,13 +107,13 @@ namespace ConsoleApp1
         static void F7()
         {
             Console.Write("Háromszög első oldala:");
-            float o1 = float.Parse(Console.ReadLine());
+            double o1 = double.Parse(Console.ReadLine());
             Console.Write("Háromszög második oldala:");
-            float o2 = float.Parse(Console.ReadLine());
+            double o2 = double.Parse(Console.ReadLine());
             Console.Write("Háromszög harmadik oldala:");
-            float o3 = float.Parse(Console.ReadLine());
+            double o3 = double.Parse(Console.ReadLine());
 
-            if (o1>0 && o2>0 && o3>0)
+            if (o1 > 0 && o2 > 0 && o3 > 0)
             {
                 Console.WriteLine("Lehet háromszöget szerkeszteni.");
             }
@@ -106,7 +131,7 @@ namespace ConsoleApp1
             int sz2 = int.Parse(Console.ReadLine());
 
             int sztk = (sz1 + sz2) / 2;
-            double mtk = Math.Sqrt(sz1*sz2);
+            double mtk = Math.Sqrt(sz1 * sz2);
 
             Console.WriteLine($"Számtani közép: {sztk}");
             Console.WriteLine($"Mértani közép: {mtk}");
@@ -122,17 +147,21 @@ namespace ConsoleApp1
             Console.Write("C:");
             int c = int.Parse(Console.ReadLine());
 
-            double D = Math.Pow(b, 2)-(4*(a*c));
+            double D = Math.Pow(b, 2) - (4 * (a * c));
 
-            if (D > 0 || D < 0)
+            if (D > 0)
             {
                 Console.WriteLine("Két megoldása van");
             }
+            else if (D == 0)
+            {
+                Console.WriteLine("Egy megoldása van");
+            }
             else
             {
-                Console.WriteLine("Nincs megoldása");
+                Console.WriteLine("Nincs valós megoldása");
             }
-            
+
         }
 
         static void F10()
@@ -145,10 +174,10 @@ namespace ConsoleApp1
             Console.Write("C:");
             double c = double.Parse(Console.ReadLine());
 
-            double D = Math.Pow(b, 2)-(4*(a * c));
+            double D = Math.Pow(b, 2) - (4 * (a * c));
 
-            double x1 = Math.Round(((-b)+(Math.Sqrt(D))/(2*a)), 2);
-            double x2 = Math.Round(((-b)-(Math.Sqrt(D))/(2*a)), 2);
+            double x1 = Math.Round(((-b) + Math.Sqrt(D)) / (2 * a), 2);
+            double x2 = Math.Round(((-b) - Math.Sqrt(D)) / (2 * a), 2);
 
             if (D > 0 || D < 0)
             {
@@ -169,7 +198,7 @@ namespace ConsoleApp1
             Console.Write("Másik befogó:");
             double b = double.Parse(Console.ReadLine());
 
-            double c2 = Math.Pow(a, 2) + Math.Pow(b,2);
+            double c2 = Math.Pow(a, 2) + Math.Pow(b, 2);
             double c = Math.Round(Math.Sqrt(c2), 2);
 
             Console.WriteLine($"Átfogó hossza: {c}");
@@ -194,10 +223,11 @@ namespace ConsoleApp1
         static void F13()
         {
             Console.Write("Kör átmérője:");
-            double r = double.Parse(Console.ReadLine());
+            double d = double.Parse(Console.ReadLine());
+            double r = d / 2;
 
             double K = Math.Round((2 * r * Math.PI), 2);
-            double T = Math.Round((Math.Pow(r, 2)*Math.PI), 2);
+            double T = Math.Round((Math.Pow(r, 2) * Math.PI), 2);
 
             Console.WriteLine($"Kör kerülete: {K}cm");
             Console.WriteLine($"Kör kerülete: {T}cm2");
@@ -210,7 +240,7 @@ namespace ConsoleApp1
             Console.Write("Középponti szöge: ");
             double szog = double.Parse(Console.ReadLine());
 
-            double A = (Math.Pow(s, 2)*szog)/2;
+            double A = (Math.Pow(s, 2) * szog) / 2;
             double L = szog * s;
 
             Console.WriteLine($"Ív területe: {A}cm2");
@@ -219,8 +249,7 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-            
+
         }
     }
 }
- 
