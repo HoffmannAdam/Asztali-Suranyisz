@@ -225,9 +225,323 @@ namespace ConsoleApp1
             Console.WriteLine($"Ív hossza: {L}cm");
         }
 
+        static void F15()
+        {
+            int sz = ReadInt("Adjon meg egy egész számot!: ");
+            
+            for (int i = 0; i <= sz; i++) 
+            {
+                Console.Write("{0} ", i);
+            }
+            Console.WriteLine();
+        }
+
+        static void F16()
+        {
+            int sz = ReadInt("Adjon meg egy egész számot!: ");
+
+            for (int i = 0; i <= sz; i++)
+            {
+                Console.WriteLine("{0}", i);
+            }
+        }
+
+        static void F17() 
+        {
+            int sz = ReadInt("Adjon meg egy egész számot!: ");
+
+            for (int i = 1; i <= sz; i++)
+            {
+                if (sz % i == 0)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+        }
+
+        static void F18()
+        {
+            int sz = ReadInt("Adjon meg egy egész számot!: ");
+
+            int szo = 0;
+
+            for (int i = 1;i <= sz; i++)
+            {
+                if (sz % i == 0)
+                {
+                    szo = szo + i;
+                }
+            }
+            Console.WriteLine($"A szám osztóinak összege {szo}");
+        }
+
+        static void F19()
+        {
+            int sz = ReadInt("Adjon meg egy egész számot!: ");
+
+            int szao = 0;
+
+            for (int i = 1; i <= sz; i++)
+            {
+                if (sz % i == 0)
+                {
+                    szao = szao + i;
+                }
+            }
+            if (szao == sz * 2)
+            {
+                Console.WriteLine($"{sz} tökéletes szám.");
+            }
+            else
+            {
+                Console.WriteLine($"{sz} nem tökéletes szám.");
+            }
+        }
+
+        static void F20()
+        {
+            int ha = ReadInt("Hatványalap: ");
+            int hk = ReadInt("Hatványkitevő: ");
+
+            double he = Math.Pow(ha, hk);
+
+            Console.WriteLine($"Hatványalap: {ha}");
+            Console.WriteLine($"Kitevő: {hk}");
+            Console.WriteLine($"Hatványérték: {he}");
+        }
+
+        static void F21()
+        {
+            double psz = -1;
+
+            while (psz <= 0) 
+            {
+                psz = ReadDouble("Adjon meg egy pozitív számot: ");
+                
+                if (psz < 0)
+                {
+                    Console.WriteLine("A szám nem pozitív!");
+                }
+                else if (psz > 0)
+                {
+                    Console.WriteLine($"{psz} pozitív szám.");
+                }
+            }
+        }
+
+        static void F22()
+        {
+            double kitossz = 0;
+            double kit = 0;
+
+            while (kit < 10)
+            {
+                kit = ReadDouble("Adjon meg egy számot!: ");
+
+                if (kit < 10)
+                {
+                    kitossz += kit;
+                }
+            }
+
+            Console.WriteLine($"A számok összege {kitossz}.");
+        }
+
+        static void F23()
+        {
+            int kosz = ReadInt("Adjon meg egy egész számot!: ");
+
+            int ooo = 0;
+            int ekosz = kosz;
+
+            if (kosz % 2 == 1)
+            {
+                Console.WriteLine("Szám nem osztható 2-vel!");
+            }
+            else
+            {
+                while (kosz % 2 == 0)
+                {
+                    ooo++;
+                    kosz = kosz / 2;
+                }
+
+                Console.Write($"{ekosz} = 2");
+                for (int i = 1; i < ooo; i++)
+                {
+                    Console.Write("*2");
+                }
+                Console.WriteLine($"*{kosz}");
+            }
+        }
+
+        static void F24()
+        {
+            string alma = "";
+
+            while (alma != "alma")
+            {
+                Console.Write("Alma?: ");
+                alma = Console.ReadLine();
+
+                if (alma != "alma")
+                {
+                    Console.WriteLine("A szó nem alma!");
+                }
+            }
+
+            Console.WriteLine("Az alma egy gyümölcs!");
+        }
+
+        static void F25()
+        {
+            int hsz = ReadInt("Adjon egy egész számot: ");
+            int ehsz = hsz;
+
+            while (hsz >= 3)
+            {
+                hsz = hsz - 3;
+            }
+            Console.WriteLine($"{ehsz} = {ehsz / 3}*3+{ehsz % 3}");
+
+        }
+
+        static void F26()
+        {
+            int prszam = ReadInt("Adjon meg egy egész számot: ");
+
+            bool prim = true;
+            int hh = prszam / 2;
+
+            for (int i = 2; i <= hh && prim; i++)
+            {
+                if (prszam % i == 0)
+                {
+                    Console.WriteLine($"{prszam} nem prímszám.");
+                    prim = false;
+                }
+            }
+
+            if (prim)
+            {
+                Console.WriteLine($"{prszam} prímszám.");
+            }
+        }
+
+        static void F27()
+        {
+            int ps = ReadInt("Adjon meg egy egész számot: ");
+
+            for (int i = 2; i <= ps; i++)
+            {
+                bool prim = true;
+
+                for (int j = 2; j * j <= i; j++)
+                {
+                    if (i % j == 0)
+                    {
+                        prim = false;
+                    }
+                }
+
+                if (prim)
+                {
+                    Console.Write(i + " ");
+                }
+            }
+            Console.WriteLine();
+        }
+
+        static void F28()
+        {
+            int prs = ReadInt("Adjon meg egy egész számot: ");
+
+            int oooo = 2;
+
+            while (prs > 1)
+            {
+                if (prs % oooo == 0)
+                {
+                    Console.Write(oooo + " ");
+                    prs /= oooo;
+                    while (prs % oooo == 0)
+                    {
+                        prs /= oooo;
+                    }
+                }
+                oooo++;
+            }
+            Console.WriteLine();
+        }
+
+        static void F29()
+        {
+            double ptszam = Math.Round(ReadDouble("Adjon meg egy számot: "));
+
+            double pti = 2;
+            while (pti <= ptszam)
+            {
+                if (ptszam % pti == 0)
+                {
+                    ptszam = ptszam / pti;
+                    Console.Write("*{0}", pti);
+                }
+                else
+                {
+                    pti++;
+                }
+            }
+            Console.WriteLine();
+        }
+
+        static void F30()
+        {
+            int sz1 = ReadInt("Adjon meg egy számot: ");
+            int sz2 = ReadInt("Adjon meg még egy számot: ");
+
+            int egy = sz1;
+            int mas = sz2;
+
+            while (mas != 0)
+            {
+                int id = mas;
+                mas = egy % mas;
+                egy = id;
+            }
+            int lnko = egy;
+
+            Console.WriteLine($"A két szám legnagyobb közös osztója: {lnko}");
+
+        }
+
+        static void F31()
+        {
+            int sz1 = ReadInt("Adjon meg egy számot: ");
+            int sz2 = ReadInt("Adjon meg még egy számot: ");
+
+            int egy = sz1;
+            int mas = sz2;
+
+            while (egy != mas)
+            {
+                if (egy > mas)
+                {
+                    egy -= mas;
+                }
+                else
+                {
+                    mas -= egy;
+                }
+            }
+
+            int lkkt = (sz1 * sz2) / egy;
+
+            Console.WriteLine($"A két szám legkisebb közös többszöröse: {lkkt}");
+        }
+
         static void Main(string[] args)
         {
-            
+            //F();
         }
     }
 }
