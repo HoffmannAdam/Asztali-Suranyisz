@@ -228,8 +228,8 @@ namespace ConsoleApp1
         static void F15()
         {
             int sz = ReadInt("Adjon meg egy egész számot!: ");
-            
-            for (int i = 0; i <= sz; i++) 
+
+            for (int i = 0; i <= sz; i++)
             {
                 Console.Write("{0} ", i);
             }
@@ -246,7 +246,7 @@ namespace ConsoleApp1
             }
         }
 
-        static void F17() 
+        static void F17()
         {
             int sz = ReadInt("Adjon meg egy egész számot!: ");
 
@@ -265,7 +265,7 @@ namespace ConsoleApp1
 
             int szo = 0;
 
-            for (int i = 1;i <= sz; i++)
+            for (int i = 1; i <= sz; i++)
             {
                 if (sz % i == 0)
                 {
@@ -314,10 +314,10 @@ namespace ConsoleApp1
         {
             double psz = -1;
 
-            while (psz <= 0) 
+            while (psz <= 0)
             {
                 psz = ReadDouble("Adjon meg egy pozitív számot: ");
-                
+
                 if (psz < 0)
                 {
                     Console.WriteLine("A szám nem pozitív!");
@@ -539,9 +539,29 @@ namespace ConsoleApp1
             Console.WriteLine($"A két szám legkisebb közös többszöröse: {lkkt}");
         }
 
+        static void F32()
+        {
+            int sz = ReadInt("Adjon meg egy egész számot: ");
+
+            for (int szor = 1; szor <= 10;  szor++)
+            {
+                Console.WriteLine($"{sz} * {szor} = {sz * szor}");
+            }
+        }
+
+        static void F33()
+        {
+            int sz = ReadInt("Adjon meg egy egész számot: ");
+
+            for (int ossz = 0; ossz <= 10; ossz++)
+            {
+                Console.WriteLine($"{sz} + {ossz} = {sz + ossz}");
+            }
+        }
+
         static void Main(string[] args)
         {
-            //F();
+            //F33();
         }
     }
 }
